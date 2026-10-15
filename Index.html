@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Парижская газета — редакция революции</title>
+<style>
+:root{--ink:#29251f;--paper:#fffdf4;--red:#8b2827;--gold:#d9b46b;--muted:#625d53}
+*{box-sizing:border-box}body{margin:0;background:#e8e5dc;color:var(--ink);font:16px/1.5 Georgia,serif}
+main{max-width:980px;margin:18px auto;background:var(--paper);padding:clamp(16px,4vw,40px);box-shadow:0 6px 30px #0002}
+header{text-align:center;border-top:7px double var(--ink);border-bottom:4px double var(--ink);padding:10px 0 16px}
+.kicker{letter-spacing:.15em;font:700 12px system-ui;text-transform:uppercase;color:var(--red)}
+h1{font-size:clamp(33px,8vw,68px);line-height:1;margin:10px 0;font-weight:900;letter-spacing:-.035em}
+.subtitle{font-size:17px}h2{font-size:23px;line-height:1.25;margin:0 0 10px;color:var(--red)}
+h3{font-size:17px;margin:14px 0 7px}p{margin:8px 0}small,.muted{color:var(--muted)}
+.toolbar{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:18px 0;font-family:system-ui}
+button{border:1px solid #9a8a6c;background:#fff7e5;color:#30291f;padding:11px 14px;border-radius:8px;font:600 14px system-ui;cursor:pointer;min-height:44px}
+button.primary{background:var(--red);color:#fff;border-color:var(--red)}button:focus-visible,input:focus,textarea:focus{outline:3px solid #c9904c;outline-offset:2px}
+section.story{border-bottom:1px solid #bdb29d;padding:22px 0;break-inside:avoid}
+.tag{font:700 12px system-ui;letter-spacing:.1em;text-transform:uppercase;color:#76562a}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.span{grid-column:1/-1}
+label{display:block;font:700 14px system-ui;margin:12px 0 5px}
+input[type=text],textarea{width:100%;border:1px solid #b8aa90;border-radius:6px;background:#fffefa;padding:11px;color:#252525;font:16px/1.5 Georgia,serif}
+textarea{min-height:105px;resize:vertical}.short{min-height:70px}
+.prompt{background:#f6f0e2;border-left:4px solid var(--gold);padding:10px 13px;margin:10px 0;font-size:15px}
+.help{display:none;background:#eef2ed;padding:12px;border-radius:8px;margin:10px 0;font-size:14px}
+body.support .help{display:block}
+.ref{font:600 12px system-ui;color:#735c37;margin:6px 0}
+.count{font:12px system-ui;color:var(--muted);text-align:right}
+footer{padding-top:20px;font-size:14px}.notice{font:13px system-ui;background:#f0e9da;padding:12px;border-radius:8px}
+@media(max-width:650px){main{margin:0;box-shadow:none}.grid{grid-template-columns:1fr}.span{grid-column:auto}h1{font-size:42px}}
+@media print{body{background:white}main{box-shadow:none;margin:0;padding:12mm}.toolbar,.help,.notice{display:none!important}textarea,input{border:0;border-bottom:1px dotted #aaa;background:transparent;resize:none}section.story{break-inside:avoid}button{display:none}}
+</style></head><body><main>
+<header><div class="kicker">Специальный выпуск • Французская революция</div><h1>ПАРИЖСКАЯ ГАЗЕТА</h1><div class="subtitle">Республика между свободой и террором • 1793–1794</div></header>
+<div class="toolbar"><button class="primary" id="support">Подсказки: выключены</button><button id="download">Сохранить PDF</button><button id="clear">Очистить</button></div>
+<div class="notice">Работайте с § 17–18, с. 126–132. Сначала найдите факт, затем объясните его своими словами. Черновик сохраняется только в браузере этого устройства; учителю ответы автоматически не отправляются. Для сдачи нажмите «Сохранить PDF», выберите в диалоге печати «Сохранить как PDF» и отправьте файл учителю.</div>
+<div class="grid"><div><label>Имя журналиста / редакции</label><input type="text" data-field="name" placeholder="Ваше имя"></div><div><label>Дата выпуска (выберите дату внутри 1793–1794 гг.)</label><input type="text" data-field="date" placeholder="Например: июль 1794 г."></div></div>
+<section class="story"><div class="tag">Передовица • Главная новость</div><h2>№ 1. Кто управляет республикой?</h2>
+<p class="prompt">Вы — редактор. Объясните читателю, почему жирондисты и монтаньяры, выступавшие за республику, оказались противниками. Сопоставьте их подходы к продолжению революции и опишите одно последствие борьбы.</p><div class="ref">Учебник: с. 127–129</div>
+<div class="help"><b>Опора:</b> «Обе группы выступали за…, но жирондисты считали…, тогда как монтаньяры… . Это привело к…». Найдите в тексте отношение групп к чрезвычайным мерам и события 31 мая — 2 июня.</div>
+<label>Заголовок передовицы</label><input data-field="headline" type="text" placeholder="Заголовок, выражающий суть конфликта">
+<label>Текст новости (4–6 предложений)</label><textarea data-field="editorial" placeholder="Общее → различия → причина конфликта → последствие"></textarea>
+<label>Какой факт из учебника подтверждает ваш вывод?</label><textarea class="short" data-field="editorial_evidence" placeholder="Событие или действие, страница"></textarea>
+</section>
+<section class="story"><div class="tag">Политическая колонка</div><h2>№ 2. Закон на бумаге и власть в действии</h2>
+<p class="prompt">Конституция 1793 года провозглашала права и предусматривала демократические механизмы, но не была введена в действие. Напишите две короткие колонки: «Что обещали?» и «Что происходило?». В конце объясните противоречие.</p><div class="ref">Учебник: с. 129–131</div>
+<div class="help"><b>Опора:</b> ищите описание Конституции, референдума и революционного порядка управления. Для вывода: «Несмотря на…, власти решили…, потому что…».</div>
+<div class="grid"><div><label>Что обещали гражданам?</label><textarea data-field="constitution_promise"></textarea></div><div><label>Как фактически управляли страной?</label><textarea data-field="constitution_reality"></textarea></div></div>
+<label>Почему возникло противоречие? (2–3 предложения)</label><textarea class="short" data-field="constitution_why"></textarea>
+</section>
+<section class="story"><div class="tag">Город и общество</div><h2>№ 3. Кому помогли новые решения?</h2>
+<p class="prompt">Выберите <b>две</b> меры монтаньяров из учебника. Для каждой объясните: какую проблему хотели решить, кому она могла помочь и какое затруднение или противоречие возникало.</p><div class="ref">Учебник: с. 130–131</div>
+<div class="help"><b>Где искать:</b> отмена повинностей, продажа земель, максимум цен, меры и весы, календарь. Формула: «Мера → цель → возможная польза → ограничение».</div>
+<div class="grid"><div><label>Мера А и её последствия</label><textarea data-field="reform_a"></textarea></div><div><label>Мера Б и её последствия</label><textarea data-field="reform_b"></textarea></div></div>
+<label>Какую меру вы бы вынесли на первую полосу и почему?</label><textarea class="short" data-field="reform_choice"></textarea>
+</section>
+<section class="story"><div class="tag">Расследование</div><h2>№ 4. «Во имя безопасности»: где граница?</h2>
+<p class="prompt">Разберите политику террора как исторический журналист. Укажите одну опасность, которой власти объясняли жёсткие меры; одну конкретную меру; одно последствие для общества. Затем ответьте: почему борьба с угрозами могла превратиться в подавление несогласных?</p><div class="ref">Учебник: с. 131–132</div>
+<div class="help"><b>Опора:</b> найдите «Закон о подозрительных», действия Революционного трибунала, ограничения свободы слова. Различайте: «власти объясняли» и «по описанию учебника произошло».</div>
+<label>Цепочка «угроза → решение → последствие»</label><textarea data-field="terror_chain"></textarea>
+<label>Вывод редакции: почему меры вышли за пределы борьбы с врагами?</label><textarea data-field="terror_analysis"></textarea>
+</section>
+<section class="story"><div class="tag">Голоса эпохи</div><h2>№ 5. Два взгляда на один поступок</h2>
+<p class="prompt">Представьте, что редакция получила два письма о политике монтаньяров: от сторонника чрезвычайных мер и от человека, который опасается произвола. Напишите по 2–3 предложения от каждого лица, опираясь на факты учебника. Это <b>историческая реконструкция</b>, а не подлинные цитаты.</p><div class="ref">Учебник: с. 129–132</div>
+<div class="help"><b>Начало:</b> «Я поддерживаю эти меры, потому что…» / «Я опасаюсь этих мер, потому что…». В обоих письмах используйте конкретные факты из параграфа.</div>
+<div class="grid"><div><label>Письмо сторонника</label><textarea data-field="voice_for"></textarea></div><div><label>Письмо критика</label><textarea data-field="voice_against"></textarea></div></div>
+<label>Редакторская пометка: какой факт лежит в основе каждого письма?</label><textarea class="short" data-field="voice_sources"></textarea>
+</section>
+<section class="story"><div class="tag">Последние известия</div><h2>№ 6. Почему Робеспьер потерял власть?</h2>
+<p class="prompt">Составьте короткую новость о падении Робеспьера. Свяжите <b>два обстоятельства</b>: как политика террора влияла на отношение к монтаньярам и что произошло в июле 1794 года. Не ограничивайтесь перечислением дат.</p><div class="ref">Учебник: с. 131–132</div>
+<div class="help"><b>Опора:</b> «Сначала…, затем… . В результате…». Обратите внимание на слова о страхе в Конвенте и расправах с политическими противниками.</div>
+<label>Новость (3–5 предложений)</label><textarea data-field="robespierre"></textarea>
+</section>
+<section class="story"><div class="tag">Редакторская позиция</div><h2>№ 7. Главный вопрос номера</h2>
+<p class="prompt">Ответьте на вопрос параграфа: <b>«Почему правление монтаньяров называют диктатурой?»</b> Используйте два разных аргумента из газеты и учебника. Завершите фразой о том, в чём состояло главное противоречие этого периода.</p><div class="ref">Учебник: с. 128–132</div>
+<div class="help"><b>Каркас:</b> «Правление называют диктатурой, во-первых, потому что… . Во-вторых, … . Противоречие состояло в том, что…». Для сильного уровня: покажите, почему поддержка республики не исключала диктаторских методов.</div>
+<label>Итоговая редакционная статья (5–7 предложений)</label><textarea data-field="final"></textarea>
+</section>
+<section class="story"><div class="tag">Самопроверка редакции</div><h2>Перед выпуском</h2>
+<label><input type="checkbox" data-check="facts"> В каждом материале есть конкретный факт из учебника.</label>
+<label><input type="checkbox" data-check="explain"> Я объясняю причины и последствия, а не переписываю абзацы.</label>
+<label><input type="checkbox" data-check="voices"> Я отличаю исторические факты от придуманных реплик.</label>
+<label><input type="checkbox" data-check="sources"> Я проверил(а) даты и имена по страницам 126–132.</label>
+</section>
+<footer><h3>Критерии оценки (20 баллов)</h3><p>Передовица — 3; Конституция — 3; реформы — 3; расследование террора — 4; голоса эпохи — 2; падение Робеспьера — 2; итоговая статья — 3.</p><p class="muted">За каждую рубрику оцениваются достоверность, объяснение причин и последствий, связь с учебником. Объём сам по себе не даёт баллов. Проверка — учителем.</p></footer>
+</main><script>
+const key='paris_newspaper_v1';const fields=[...document.querySelectorAll('[data-field]')];const checks=[...document.querySelectorAll('[data-check]')];
+function collect(){const obj={};fields.forEach(e=>obj[e.dataset.field]=e.value);checks.forEach(e=>obj['check_'+e.dataset.check]=e.checked);return obj}
+function fill(o){fields.forEach(e=>e.value=o[e.dataset.field]||'');checks.forEach(e=>e.checked=!!o['check_'+e.dataset.check])}
+try{
+const snapshot=document.getElementById('embedded-answers');
+if(snapshot){fill(JSON.parse(snapshot.textContent));}
+else{fill(JSON.parse(localStorage.getItem(key)||'{}'));}
+}catch(e){console.warn('Не удалось восстановить ответы',e)}
+document.addEventListener('input',()=>{try{localStorage.setItem(key,JSON.stringify(collect()))}catch(e){}});
+document.addEventListener('change',()=>{try{localStorage.setItem(key,JSON.stringify(collect()))}catch(e){}});
+document.getElementById('support').onclick=()=>{document.body.classList.toggle('support');document.getElementById('support').textContent='Подсказки: '+(document.body.classList.contains('support')?'включены':'выключены')};
+
+document.getElementById('clear').onclick=()=>{if(confirm('Удалить все ответы в этой газете?')){fill({});localStorage.removeItem(key)}};
+document.getElementById('download').onclick=()=>{
+const original=document.querySelector('main'),copy=original.cloneNode(true);
+copy.querySelectorAll('.toolbar,.notice,.help').forEach(e=>e.remove());
+const a=[...original.querySelectorAll('[data-field]')],b=[...copy.querySelectorAll('[data-field]')];
+a.forEach((e,i)=>{const d=document.createElement('div');d.className='pdf-answer';d.textContent=e.value||'—';b[i].replaceWith(d)});
+const x=[...original.querySelectorAll('[data-check]')],y=[...copy.querySelectorAll('[data-check]')];
+x.forEach((e,i)=>{const d=document.createElement('span');d.textContent=e.checked?'☑ ':'☐ ';y[i].replaceWith(d)});
+const wrap=document.createElement('div');wrap.id='pdf-output';wrap.appendChild(copy);document.body.appendChild(wrap);
+const st=document.createElement('style');st.textContent='@media screen{#pdf-output{display:none}}@media print{body>main{display:none!important}#pdf-output{display:block!important}#pdf-output main{max-width:none;margin:0;box-shadow:none;padding:8mm}#pdf-output .grid{grid-template-columns:1fr 1fr}#pdf-output section.story{break-inside:auto}}.pdf-answer{white-space:pre-wrap;overflow-wrap:anywhere;min-height:22px;border-bottom:1px dotted #aaa;padding:5px}';document.head.appendChild(st);
+const done=()=>{wrap.remove();st.remove();window.removeEventListener('afterprint',done)};
+window.addEventListener('afterprint',done);setTimeout(()=>window.print(),100);setTimeout(done,120000);
+};
+</script></body></html>
